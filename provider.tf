@@ -13,9 +13,11 @@ provider "aws" {
 
   default_tags {
     tags = {
-      ManagedBy   = "Terraform"
-      Project     = var.prefix
-      Environment = "Dev"
+      ManagedBy     = "Terraform"
+      Project       = var.prefix
+      Environment   = "Dev"
+      TechOwner     = "user_team@mycompany.com"
+      BusinessOwner = "user_business_team@mycompany.com"
     }
   }
 }
