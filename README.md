@@ -31,11 +31,7 @@
    ``` shell
    brew install tfsec
    ```
-7. [infracost](https://www.infracost.io/docs/)
-   ``` shell
-   brew install infracost
-   ```
-8. [terraform-docs](https://terraform-docs.io/user-guide/installation/)
+7. [terraform-docs](https://terraform-docs.io/user-guide/installation/)
    ``` shell
    brew install terraform-docs
    ```
@@ -50,9 +46,9 @@
    terraform init
    terraform validate
    terraform plan
-   terraform apply
-   terraform output
-   terraform destroy
+#   terraform apply
+#   terraform output
+#   terraform destroy
    ```
    3. Execute tf-tools commands - to be used prior to every commit,
    ```shell
@@ -60,5 +56,10 @@
    terraform-docs markdown table --output-file README-tf.md .
    tflint --recursive
    tfsec .
-   infracost breakdown --path .   
    ```
+
+## FinOps
+
+Refer the [detailed cost estimates](/FinOps/iac-serverless_estimates.json) file for detailed rough cost estimates generated via [Cost calculator](https://calculator.aws/#/)
+
+![](/FinOps/total_cost.png)

@@ -1,0 +1,36 @@
+{
+  "Name": "iac-serverless-raj_estimates",
+  "Total Cost": {
+    "monthly": "1.61",
+    "upfront": "0.00",
+    "12 months": "19.32"
+  },
+  "Metadata": {
+    "Currency": "USD",
+    "Locale": "en_US",
+    "Created On": "06/11/2024",
+    "Legal Disclaimer": "AWS Pricing Calculator provides only an estimate of your AWS fees and doesn't include any taxes that might apply. Your actual fees depend on a variety of factors, including your actual usage of AWS services.",
+    "Share Url": "https://calculator.aws/#/estimate?id=b85ffbef7731dbad55cee98ec8ce0939f0541572"
+  },
+  "Groups": {
+    "Services": [
+      {
+        "Service Name": "DynamoDB provisioned capacity",
+        "Region": "Asia Pacific (Sydney)",
+        "Status": "",
+        "Service Cost": {
+          "monthly": "1.61",
+          "upfront": "0.00",
+          "12 months": "19.32"
+        },
+        "Properties": {
+          "Table class": "Standard-Infrequent Access",
+          "Average item size (all attributes)": "1 KB",
+          "Write reserved capacity term": "Unavailable",
+          "Read reserved capacity term": "Unavailable",
+          "Data storage size": "1 GB"
+        }
+      }
+    ]
+  }
+}
