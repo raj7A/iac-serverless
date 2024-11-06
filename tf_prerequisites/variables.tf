@@ -1,7 +1,7 @@
 variable "prefix" {
   type        = string
   description = "prefix used for naming resources"
-  default     = "iac-lab-raj"
+  default     = "iac-serverless-raj"
 }
 
 variable "region" {
