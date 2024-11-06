@@ -53,7 +53,7 @@
    3. Execute tf-tools commands - to be used prior to every commit,
    ```shell
    terraform fmt -recursive
-   terraform-docs markdown table --output-file README-tf.md .
+   terraform-docs markdown table --output-file README.md .
    tflint --recursive
    tfsec .
    ```
@@ -63,3 +63,37 @@
 Refer the [detailed cost estimates](finOps/iac-serverless-raj_estimate.json) file for detailed rough cost estimates generated via [Cost calculator](https://calculator.aws/#/)
 
 ![](/finOps/total_cost.png)
+
+########################## **_Terraform docs generated using [terraform-docs](https://terraform-docs.io/user-guide/installation/)_** ##########################
+
+<!-- BEGIN_TF_DOCS -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.9.8 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | 5.54.1 |
+
+## Providers
+
+No providers.
+
+## Modules
+
+No modules.
+
+## Resources
+
+No resources.
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_prefix"></a> [prefix](#input\_prefix) | prefix used for naming resources | `string` | `"iac-serverless-raj"` | no |
+| <a name="input_region"></a> [region](#input\_region) | region for creating all resources | `string` | `"ap-southeast-2"` | no |
+
+## Outputs
+
+No outputs.
+<!-- END_TF_DOCS -->

@@ -1,3 +1,11 @@
+# terraform prerequisites
+
+## Overview
+_IaC to Create resources for backend support (state file store and state locking),_
+1. [S3](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket)
+2. [DynamoDB](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dynamodb_table)
+
+########################## **_Terraform docs generated using [terraform-docs](https://terraform-docs.io/user-guide/installation/)_** ##########################
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
