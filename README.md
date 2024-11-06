@@ -39,3 +39,26 @@
    ``` shell
    brew install terraform-docs
    ```
+
+## _How to Run_
+   1. Sign-in to aws,
+   ```shell
+   aws sso login --profile {profile} && export AWS_PROFILE={profile}
+   ```
+   2. Execute the following tf commands,
+   ```shell
+   terraform init
+   terraform validate
+   terraform plan
+   terraform apply
+   terraform output
+   terraform destroy
+   ```
+   3. Execute tf-tools commands - to be used prior to every commit,
+   ```shell
+   terraform fmt -recursive
+   terraform-docs markdown table --output-file README-tf.md .
+   tflint --recursive
+   tfsec .
+   infracost breakdown --path .   
+   ```
