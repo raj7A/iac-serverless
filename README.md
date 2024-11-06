@@ -60,6 +60,6 @@
 
 ## FinOps
 
-Refer the [detailed cost estimates](/FinOps/iac-serverless_estimates.json) file for detailed rough cost estimates generated via [Cost calculator](https://calculator.aws/#/)
+Refer the [detailed cost estimates](FinOps/iac-serverless-raj_estimate.json) file for detailed rough cost estimates generated via [Cost calculator](https://calculator.aws/#/)
 
 ![](/FinOps/total_cost.png)
