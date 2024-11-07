@@ -58,7 +58,16 @@ resource "aws_iam_role_policy" "extra_permissions" {
         "Action" : [
           "s3:*",
         ],
-        "Resource" : ["arn:aws:s3:::${var.prefix}-tfstate", "arn:aws:s3:::${var.prefix}-tfstate/*"]
+        "Resource" : [
+          "arn:aws:s3:::${var.prefix}-tfstate",
+          "arn:aws:s3:::${var.prefix}-tfstate/*",
+          "arn:aws:s3:::user-details-static-contents"
+        ]
+      },
+      {
+        "Effect":"Allow",
+        "Action": "s3:ListAllMyBuckets",
+        "Resource":"*"
       }
     ]
   })
