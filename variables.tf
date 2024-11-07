@@ -13,3 +13,8 @@ variable "db_name" {
   type        = string
   description = "Database name for storing users"
 }
+
+variable "bucket_name" {
+  type        = string
+  description = "bucket name for storing static html contents"
+}

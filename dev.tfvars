@@ -1,4 +1,5 @@
 prefix = "iac-serverless-raj"
 region = "ap-southeast-2"
 
-db_name = "user_details"
+db_name     = "user_details"
+bucket_name = "user-details-static-contents"
