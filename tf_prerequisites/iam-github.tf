@@ -65,9 +65,9 @@ resource "aws_iam_role_policy" "extra_permissions" {
         ]
       },
       {
-        "Effect":"Allow",
-        "Action": "s3:ListAllMyBuckets",
-        "Resource":"*"
+        "Effect" : "Allow",
+        "Action" : "s3:ListAllMyBuckets",
+        "Resource" : "*"
       }
     ]
   })

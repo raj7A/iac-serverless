@@ -1,16 +1,16 @@
 {
 	"Name": "iac-serverless-raj_estimate",
 	"Total Cost": {
-		"monthly": "9.77",
+		"monthly": "9.91",
 		"upfront": "0.00",
-		"12 months": "117.24"
+		"12 months": "118.92"
 	},
 	"Metadata": {
 		"Currency": "USD",
 		"Locale": "en_US",
 		"Created On": "07/11/2024",
 		"Legal Disclaimer": "AWS Pricing Calculator provides only an estimate of your AWS fees and doesn't include any taxes that might apply. Your actual fees depend on a variety of factors, including your actual usage of AWS services.",
-		"Share Url": "https://calculator.aws/#/estimate?id=d613b8dc46223d9d5a5ba04796cb762efa43f71c"
+		"Share Url": "https://calculator.aws/#/estimate?id=49aa28fc70b24ba5bd142d1cf1b862e25d2a6d3b"
 	},
 	"Groups": {
 		"Services": [
@@ -70,6 +70,36 @@
 					"Write reserved capacity term": "Unavailable",
 					"Read reserved capacity term": "Unavailable",
 					"Data storage size": "1 GB"
+				}
+			},
+			{
+				"Service Name": "S3 Standard",
+				"Region": "Asia Pacific (Sydney)",
+				"Status": "",
+				"Service Cost": {
+					"monthly": "0.03",
+					"upfront": "0.00",
+					"12 months": "0.36"
+				},
+				"Properties": {
+					"S3 Standard storage": "1 GB per month",
+					"PUT, COPY, POST, LIST requests to S3 Standard": "100",
+					"GET, SELECT, and all other requests from S3 Standard": "100",
+					"Data returned by S3 Select": "1 GB per month"
+				}
+			},
+			{
+				"Service Name": "Data Transfer",
+				"Region": "Asia Pacific (Sydney)",
+				"Status": "",
+				"Service Cost": {
+					"monthly": "0.11",
+					"upfront": "0.00",
+					"12 months": "1.37"
+				},
+				"Properties": {
+					"DT Inbound: Internet": "1 GB per month",
+					"DT Outbound: Internet": "1 GB per month"
 				}
 			}
 		]
