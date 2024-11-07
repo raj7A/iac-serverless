@@ -7,11 +7,9 @@ variable "prefix" {
 variable "region" {
   type        = string
   description = "region for creating all resources"
-  default     = "ap-southeast-2"
 }
 
 variable "db_name" {
   type        = string
-  description = "Database name"
-  default     = "user"
+  description = "Database name for storing users"
 }
