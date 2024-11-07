@@ -9,3 +9,9 @@ variable "region" {
   description = "region for creating all resources"
   default     = "ap-southeast-2"
 }
+
+variable "repo_name" {
+  type        = string
+  description = "iac repository name"
+  default     = "raj7A/iac-serverless"
+}
