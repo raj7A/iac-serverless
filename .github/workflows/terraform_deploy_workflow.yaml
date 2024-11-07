@@ -1,0 +1,77 @@
+name: Deploy Infra workflow template
+
+on:
+  workflow_call:
+    inputs:
+      working-directory:
+        description: "terraform working directory"
+        required: true
+        type: string
+      AWS_REGION:
+        description: "aws region"
+        required: false
+        default: "ap-southeast-2"
+        type: string
+      IAM_ROLE:
+        description: "I AM role"
+        required: false
+        default: "arn:aws:iam::160071257600:role/iac-serverless-raj-github-actions-role"
+        type: string
+      tf-parameters:
+        description: "Extra terraform parameters"
+        required: false
+        default: ""
+        type: string
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.9.8"
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@2ec54502e3e7b5d9591613811da6daded35caa19
+        with:
+          role-session-name: GitHubActionsSession
+          role-to-assume: ${{ inputs.IAM_ROLE }}
+          aws-region: ${{ inputs.AWS_REGION }}
+
+      - name: Get aws identity
+        run: |
+          aws sts get-caller-identity
+
+      - name: Install tf tools
+        run: |
+          curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install_linux.sh | bash
+          curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
+
+      - name: Terraform format check
+        continue-on-error: true
+        run: |
+          tflint --recursive
+        working-directory: ${{ inputs.working-directory }}
+
+      - name: Terraform security scan
+        continue-on-error: true
+        run: |
+          tfsec .
+        working-directory: ${{ inputs.working-directory }}
+
+      - name: Terraform init & plan
+        run: |
+          terraform init
+          terraform plan ${{ inputs.tf-parameters }}
+        working-directory: ${{ inputs.working-directory }}
+
+      - name: Terraform apply
+        run: |
+          terraform apply --auto-approve ${{ inputs.tf-parameters }}
+        working-directory: ${{ inputs.working-directory }}
