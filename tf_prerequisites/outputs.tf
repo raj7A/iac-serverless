@@ -1,6 +1,6 @@
 output "tf_lock_arn" {
   description = "arn of dynamodb used for terraform lock"
-  value       = aws_dynamodb_table.terraform-lock.arn
+  value       = module.dynamodb_table.dynamodb_table_arn
 }
 
 output "tf_state_arn" {

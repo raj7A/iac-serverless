@@ -1,13 +1,19 @@
-resource "aws_dynamodb_table" "terraform-lock" {
-  name         = format("%s-tfstate-lock", var.prefix)
-  billing_mode = "PAY_PER_REQUEST"
-  hash_key     = "LockID"
-  server_side_encryption {
-    enabled = true
-  }
+module "dynamodb_table" {
+  source                         = "terraform-aws-modules/dynamodb-table/aws"
+  version                        = "4.2.0"
+  name                           = format("%s-tfstate-lock", var.prefix)
+  hash_key                       = "LockID"
+  billing_mode                   = "PAY_PER_REQUEST"
+  server_side_encryption_enabled = true
 
-  attribute {
-    name = "LockID"
-    type = "S"
+  attributes = [
+    {
+      name = "LockID"
+      type = "S"
+    }
+  ]
+
+  tags = {
+    name = format("%s-tf-statelock-database", var.prefix)
   }
 }
