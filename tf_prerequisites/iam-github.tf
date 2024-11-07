@@ -16,34 +16,6 @@ data "aws_region" "current" {}
 resource "aws_iam_role" "github_actions_role" {
   name = format("%s-github-actions-role", var.prefix)
 
-  managed_policy_arns = [
-    "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"
-  ]
-
-  inline_policy {
-    name = "extra_permissions"
-
-    policy = jsonencode({
-      Version = "2012-10-17"
-      Statement = [
-        {
-          "Effect" : "Allow",
-          "Action" : [
-            "dynamodb:*",
-          ],
-          "Resource" : format("arn:aws:dynamodb:%s:%s:table/%s-tfstate-locks*", data.aws_region.current.id, data.aws_caller_identity.current.id, var.prefix)
-        },
-        {
-          "Effect" : "Allow",
-          "Action" : [
-            "s3:*",
-          ],
-          "Resource" : ["arn:aws:s3:::${var.prefix}-tfstate", "arn:aws:s3:::${var.prefix}-tfstate/*"]
-        }
-      ]
-    })
-  }
-
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
@@ -65,4 +37,35 @@ resource "aws_iam_role" "github_actions_role" {
       }
     ]
   })
+}
+
+resource "aws_iam_role_policy" "extra_permissions" {
+  name = "extra_permissions"
+  role = aws_iam_role.github_actions_role.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        "Effect" : "Allow",
+        "Action" : [
+          "dynamodb:*",
+        ],
+        "Resource" : format("arn:aws:dynamodb:%s:%s:table/%s-tfstate-locks*", data.aws_region.current.id, data.aws_caller_identity.current.id, var.prefix)
+      },
+      {
+        "Effect" : "Allow",
+        "Action" : [
+          "s3:*",
+        ],
+        "Resource" : ["arn:aws:s3:::${var.prefix}-tfstate", "arn:aws:s3:::${var.prefix}-tfstate/*"]
+      }
+    ]
+  })
+
+}
+
+resource "aws_iam_role_policy_attachments_exclusive" "exclusive_policies" {
+  role_name   = aws_iam_role.github_actions_role.name
+  policy_arns = ["arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"]
 }
