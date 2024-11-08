@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   destroy:
-    name: Deploy
+    name: Destroy
     runs-on: ubuntu-latest
     permissions:
       id-token: write

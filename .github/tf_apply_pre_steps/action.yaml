@@ -13,7 +13,7 @@ inputs:
   IAM_ROLE:
     description: "I AM role"
     required: false
-    default: "arn:aws:iam::160071257600:role/iac-lab-raj-github-actions-role"
+    default: "arn:aws:iam::160071257600:role/iac-serverless-github-actions-role"
     type: string
 
 runs:
