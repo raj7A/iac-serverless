@@ -1,0 +1,60 @@
+name: login-aws, lint, security check
+
+inputs:
+  working-directory:
+    description: "terraform working directory"
+    required: true
+    type: string
+  AWS_REGION:
+    description: "aws region"
+    required: false
+    default: "ap-southeast-2"
+    type: string
+  IAM_ROLE:
+    description: "I AM role"
+    required: false
+    default: "arn:aws:iam::160071257600:role/iac-lab-raj-github-actions-role"
+    type: string
+
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v3
+      with:
+        terraform_version: "1.9.8"
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@2ec54502e3e7b5d9591613811da6daded35caa19
+      with:
+        role-session-name: GitHubActionsSession
+        role-to-assume: ${{ inputs.IAM_ROLE }}
+        aws-region: ${{ inputs.AWS_REGION }}
+
+    - name: Get aws identity
+      shell: bash
+      run: |
+        aws sts get-caller-identity
+
+    - name: Install tf tools
+      shell: bash
+      run: |
+        curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install_linux.sh | bash
+        curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
+
+    - name: Terraform lint
+      continue-on-error: true
+      shell: bash
+      run: |
+        tflint --recursive
+      working-directory: ${{ inputs.working-directory }}
+
+    - name: Terraform security scan
+      continue-on-error: true
+      shell: bash
+      run: |
+        tfsec .
+      working-directory: ${{ inputs.working-directory }}

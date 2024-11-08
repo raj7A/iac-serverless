@@ -41,16 +41,21 @@
    ```shell
    aws sso login --profile {profile} && export AWS_PROFILE={profile}
    ```
-   2. Execute the following tf commands,
+   2. Create pre-requisite resources,
+   ```shell
+   cd tf_prerequisites/
+   terraform apply
+```
+   3. Create the remaining resources manually or via pipeline,
    ```shell
    terraform init
    terraform validate
-   terraform plan
-#   terraform apply
+   terraform plan --var-file=dev.tfvars
+#   terraform apply --var-file=dev.tfvars
 #   terraform output
 #   terraform destroy
    ```
-   3. Execute tf-tools commands - to be used prior to every commit,
+   4. Execute tf-tools commands - _to be used prior to every commit,_
    ```shell
    terraform fmt -recursive
    terraform-docs markdown table --output-file README.md .
