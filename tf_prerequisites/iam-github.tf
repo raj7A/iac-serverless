@@ -61,24 +61,14 @@ resource "aws_iam_role_policy" "extra_permissions" {
         "Resource" : [
           "arn:aws:s3:::${var.prefix}-tfstate",
           "arn:aws:s3:::${var.prefix}-tfstate/*",
-          "arn:aws:s3:::user-details-static-contents"
+          "arn:aws:s3:::user-details-static-contents",
+          "arn:aws:s3:::user-details-static-contents/*"
         ]
       },
       {
         "Effect" : "Allow",
         "Action" : "s3:ListAllMyBuckets",
         "Resource" : "*"
-      },
-      {
-        "Effect":"Allow",
-        "Action":[
-          "s3:PutObject",
-          "s3:PutObjectAcl",
-          "s3:GetObject",
-          "s3:GetObjectAcl",
-          "s3:DeleteObject"
-        ],
-        "Resource":"arn:aws:s3:::user-details-static-contents/*"
       }
     ]
   })
