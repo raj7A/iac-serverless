@@ -1,6 +1,7 @@
 name: Deploy Infra to dev environment
 
 on:
+  workflow_dispatch:
   push:
     branches: [ "main" ]
 
