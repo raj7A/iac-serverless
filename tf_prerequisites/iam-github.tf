@@ -61,7 +61,8 @@ resource "aws_iam_role_policy" "extra_permissions" {
         "Resource" : [
           "arn:aws:s3:::${var.prefix}-tfstate",
           "arn:aws:s3:::${var.prefix}-tfstate/*",
-          "arn:aws:s3:::user-details-static-contents"
+          "arn:aws:s3:::user-details-static-contents",
+          "arn:aws:s3:::user-details-static-contents/*"
         ]
       },
       {
