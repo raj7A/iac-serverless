@@ -21,3 +21,16 @@ module "s3_bucket" {
   }
 
 }
+
+resource "aws_s3_object" "user_app_static_page_objects" {
+  for_each = fileset("./application/user-app/static-page/", "*")
+
+  bucket = module.s3_bucket.s3_bucket_id
+  key    = each.value
+  source = "./application/user-app/static-page/${each.value}"
+
+  tags = {
+    Name = format("%s-%s", var.prefix, "user-app-static-page")
+  }
+
+}

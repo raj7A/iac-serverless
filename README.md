@@ -86,7 +86,9 @@ Refer the [detailed cost estimates](finOps/iac-serverless-raj_estimate.json) fil
 
 ## Providers
 
-No providers.
+| Name | Version |
+|------|---------|
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.72.1 |
 
 ## Modules
 
@@ -97,7 +99,9 @@ No providers.
 
 ## Resources
 
-No resources.
+| Name | Type |
+|------|------|
+| [aws_s3_object.user_app_static_page_objects](https://registry.terraform.io/providers/hashicorp/aws/5.72.1/docs/resources/s3_object) | resource |
 
 ## Inputs
 
