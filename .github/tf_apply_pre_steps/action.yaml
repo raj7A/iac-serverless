@@ -1,10 +1,6 @@
-name: login-aws, lint, security check
+name: login-aws, fmt, lint, security check
 
 inputs:
-  working-directory:
-    description: "terraform working directory"
-    required: true
-    type: string
   AWS_REGION:
     description: "aws region"
     required: false
@@ -45,16 +41,20 @@ runs:
         curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install_linux.sh | bash
         curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
 
+    - name: Terraform format
+#      continue-on-error: true
+      shell: bash
+      run: |
+        terraform fmt --check --diff --recursive
+
     - name: Terraform lint
       continue-on-error: true
       shell: bash
       run: |
         tflint --recursive
-      working-directory: ${{ inputs.working-directory }}
 
     - name: Terraform security scan
       continue-on-error: true
       shell: bash
       run: |
         tfsec .
-      working-directory: ${{ inputs.working-directory }}

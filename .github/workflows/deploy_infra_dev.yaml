@@ -22,7 +22,7 @@ jobs:
       contents: read
 
     steps:
-      - name: login-aws, lint, security check
+      - name: login-aws, format, lint, security check
         uses: raj7A/iac-serverless/.github/tf_apply_pre_steps@main
         with:
           AWS_REGION       : ${{ env.AWS_REGION }}
