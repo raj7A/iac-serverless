@@ -4,7 +4,10 @@ from urllib.parse import parse_qsl
 
 
 def lambda_handler(event, context):
+    #   Sample event for testing via ui
+    #   {
     #   "rawQueryString": "UserId=Raj7"
+    # }
     query_string = dict(parse_qsl(event["rawQueryString"]))
     client = boto3.resource("dynamodb")
     db_table = client.Table(getenv("DB_TABLE_NAME"))
