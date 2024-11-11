@@ -69,6 +69,22 @@ resource "aws_iam_role_policy" "extra_permissions" {
         "Effect" : "Allow",
         "Action" : "s3:ListAllMyBuckets",
         "Resource" : "*"
+      },
+      {
+        "Effect" : "Allow",
+        "Action" : [
+          "iam:PassRole",
+          "iam:*Role*",
+          "iam:*Policy*"
+        ],
+        "Resource" : "*"
+      },
+      {
+        "Effect" : "Allow",
+        "Action" : [
+          "logs:*",
+        ],
+        "Resource" : "*"
       }
     ]
   })
@@ -76,6 +92,9 @@ resource "aws_iam_role_policy" "extra_permissions" {
 }
 
 resource "aws_iam_role_policy_attachments_exclusive" "exclusive_policies" {
-  role_name   = aws_iam_role.github_actions_role.name
-  policy_arns = ["arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"]
+  role_name = aws_iam_role.github_actions_role.name
+  policy_arns = [
+    "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess",
+    "arn:aws:iam::aws:policy/AWSLambda_FullAccess"
+  ]
 }
