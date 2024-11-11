@@ -1,21 +1,22 @@
 {
 	"Name": "iac-serverless-raj_estimate",
 	"Total Cost": {
-		"monthly": "9.91",
+		"monthly": "20.00",
 		"upfront": "0.00",
-		"12 months": "118.92"
+		"12 months": "240.00"
 	},
 	"Metadata": {
 		"Currency": "USD",
 		"Locale": "en_US",
-		"Created On": "07/11/2024",
+		"Created On": "11/11/2024",
 		"Legal Disclaimer": "AWS Pricing Calculator provides only an estimate of your AWS fees and doesn't include any taxes that might apply. Your actual fees depend on a variety of factors, including your actual usage of AWS services.",
-		"Share Url": "https://calculator.aws/#/estimate?id=49aa28fc70b24ba5bd142d1cf1b862e25d2a6d3b"
+		"Share Url": "https://calculator.aws/#/estimate?id=615e8c6ac816e1d0bcce1b6763a77c9f4d3149bf"
 	},
 	"Groups": {
 		"Services": [
 			{
 				"Service Name": "DynamoDB provisioned capacity",
+				"Description": "TF state lock table",
 				"Region": "Asia Pacific (Sydney)",
 				"Status": "",
 				"Service Cost": {
@@ -33,6 +34,7 @@
 			},
 			{
 				"Service Name": "S3 Standard",
+				"Description": "TF state file storage",
 				"Region": "Asia Pacific (Sydney)",
 				"Status": "",
 				"Service Cost": {
@@ -46,6 +48,7 @@
 			},
 			{
 				"Service Name": "Data Transfer",
+				"Description": "TF state file storage",
 				"Region": "Asia Pacific (Sydney)",
 				"Status": "",
 				"Service Cost": {
@@ -57,6 +60,7 @@
 			},
 			{
 				"Service Name": "DynamoDB provisioned capacity",
+				"Description": "User_Details table",
 				"Region": "Asia Pacific (Sydney)",
 				"Status": "",
 				"Service Cost": {
@@ -74,6 +78,7 @@
 			},
 			{
 				"Service Name": "S3 Standard",
+				"Description": "User-app's static content storage",
 				"Region": "Asia Pacific (Sydney)",
 				"Status": "",
 				"Service Cost": {
@@ -90,6 +95,7 @@
 			},
 			{
 				"Service Name": "Data Transfer",
+				"Description": "User-app's static content storage",
 				"Region": "Asia Pacific (Sydney)",
 				"Status": "",
 				"Service Cost": {
@@ -100,6 +106,23 @@
 				"Properties": {
 					"DT Inbound: Internet": "1 GB per month",
 					"DT Outbound: Internet": "1 GB per month"
+				}
+			},
+			{
+				"Service Name": "AWS Lambda",
+				"Description": "User-app's register and verify lambda functions",
+				"Region": "Asia Pacific (Sydney)",
+				"Status": "",
+				"Service Cost": {
+					"monthly": "10.09",
+					"upfront": "0.00",
+					"12 months": "121.08"
+				},
+				"Properties": {
+					"Invoke Mode": "Buffered",
+					"Architecture": "x86",
+					"Number of requests": "1 per second",
+					"Amount of ephemeral storage allocated": "512 MB"
 				}
 			}
 		]
