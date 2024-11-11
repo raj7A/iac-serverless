@@ -3,9 +3,9 @@ module "lambda_function" {
   source   = "terraform-aws-modules/lambda/aws"
 
   version       = "7.14.0"
-  function_name = format("%s_%s", var.prefix, trim(each.value, ".py"))
-  description   = format("%s lambda function", trim(each.value, ".py"))
-  handler       = format("%s.lambda_handler", trim(each.value, ".py"))
+  function_name = format("%s_%s", var.prefix, trim(each.value, local.character_to_be_removed))
+  description   = format("%s lambda function", trim(each.value, local.character_to_be_removed))
+  handler       = format("%s.lambda_handler", trim(each.value, local.character_to_be_removed))
   runtime       = "python3.12"
   source_path   = "./application/user-app/src/${each.value}"
 
@@ -26,7 +26,7 @@ module "lambda_function" {
         account_principal = {
           type = "AWS",
           identifiers = [
-            format("arn:aws:sts::%s:assumed-role/%s/%s", data.aws_caller_identity.current.id, format("%s_%s", var.prefix, trim(each.value, ".py")), format("%s_%s", var.prefix, trim(each.value, ".py")))
+            format("arn:aws:sts::%s:assumed-role/%s/%s", data.aws_caller_identity.current.id, format("%s_%s", var.prefix, trim(each.value, local.character_to_be_removed)), format("%s_%s", var.prefix, trim(each.value, local.character_to_be_removed)))
           ]
         }
       }
@@ -61,3 +61,7 @@ module "lambda_function" {
 
 data "aws_caller_identity" "current" {}
 data "aws_region" "current" {}
+
+locals {
+  character_to_be_removed = ".py"
+}
