@@ -16,6 +16,7 @@ module "lambda_function" {
     "WEBSITE_S3"    = var.bucket_name
   }
 
+  // Though the register-user and verify-user requires different resource access policies on s3 and dynamodb, below gives common access across across - DRY principle
   attach_policy_statements = true
   assume_role_policy_statements = {
     account_root = {
