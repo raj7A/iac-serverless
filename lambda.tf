@@ -16,22 +16,8 @@ module "lambda_function" {
     "WEBSITE_S3"    = var.bucket_name
   }
 
-  // Though the register-user and verify-user requires different resource access policies on s3 and dynamodb, below gives common access across across - DRY principle
+  create_role              = true
   attach_policy_statements = true
-  assume_role_policy_statements = {
-    account_root = {
-      effect  = "Allow",
-      actions = ["sts:AssumeRole"],
-      principals = {
-        account_principal = {
-          type = "AWS",
-          identifiers = [
-            format("arn:aws:sts::%s:assumed-role/%s/%s", data.aws_caller_identity.current.id, format("%s_%s", var.prefix, trim(each.value, local.character_to_be_removed)), format("%s_%s", var.prefix, trim(each.value, local.character_to_be_removed)))
-          ]
-        }
-      }
-    }
-  }
   policy_statements = {
     dynamodb = {
       effect = "Allow",
