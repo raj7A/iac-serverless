@@ -86,22 +86,19 @@ Refer the [detailed cost estimates](finOps/iac-serverless-raj_estimate.json) fil
 
 ## Providers
 
-| Name | Version |
-|------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.72.1 |
+No providers.
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_dynamodb_table"></a> [dynamodb\_table](#module\_dynamodb\_table) | terraform-aws-modules/dynamodb-table/aws | 4.2.0 |
-| <a name="module_s3_bucket"></a> [s3\_bucket](#module\_s3\_bucket) | terraform-aws-modules/s3-bucket/aws | 4.2.1 |
+| <a name="module_lambda_function"></a> [lambda\_function](#module\_lambda\_function) | terraform-aws-modules/lambda/aws | 7.14.0 |
+| <a name="module_s3"></a> [s3](#module\_s3) | ./modules/s3 | n/a |
 
 ## Resources
 
-| Name | Type |
-|------|------|
-| [aws_s3_object.user_app_static_page_objects](https://registry.terraform.io/providers/hashicorp/aws/5.72.1/docs/resources/s3_object) | resource |
+No resources.
 
 ## Inputs
 
