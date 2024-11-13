@@ -27,7 +27,6 @@ jobs:
 
       - name: Terraform destroy plan
         run: |
-          terraform init
           terraform plan -destroy -var-file="dev.tfvars"
 
       - name: Terraform destroy

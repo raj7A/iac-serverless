@@ -30,7 +30,6 @@ jobs:
 
       - name: Terraform create plan
         run: |
-          terraform init
           terraform plan -var-file="dev.tfvars"
 
       - name: Terraform create
