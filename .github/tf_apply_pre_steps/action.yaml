@@ -44,7 +44,6 @@ runs:
     - name: Terraform initialize
       shell: bash
       run: |
-#        terraform init --upgrade
         terraform init
 
     - name: Terraform validate
