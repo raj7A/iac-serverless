@@ -8,7 +8,7 @@ module "lambda_function" {
   handler       = format("%s.lambda_handler", trim(each.value, local.character_to_be_removed))
   runtime       = "python3.12"
   source_path   = "./application/user-app/src/${each.value}"
-
+  trigger_on_package_timestamp = false
   timeout = "60"
 
   environment_variables = {
