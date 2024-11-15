@@ -1,13 +1,13 @@
 module "lambda_function" {
-  for_each = fileset("./application/user-app/src/", "*")
+  for_each = var.lambda_functions
   source   = "terraform-aws-modules/lambda/aws"
 
   version       = "7.14.0"
-  function_name = format("%s_%s", var.prefix, trim(each.value, local.character_to_be_removed))
-  description   = format("%s lambda function", trim(each.value, local.character_to_be_removed))
-  handler       = format("%s.lambda_handler", trim(each.value, local.character_to_be_removed))
+  function_name = format("%s_%s", var.prefix, each.key)
+  description   = format("%s lambda function", each.key)
+  handler       = format("%s.lambda_handler", each.key)
   runtime       = "python3.12"
-  source_path   = "./application/user-app/src/${each.value}"
+  source_path   = each.value
 
   timeout = "60"
 
@@ -54,7 +54,3 @@ module "lambda_function" {
 
 data "aws_caller_identity" "current" {}
 data "aws_region" "current" {}
-
-locals {
-  character_to_be_removed = ".py"
-}

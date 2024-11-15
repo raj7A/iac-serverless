@@ -18,3 +18,8 @@ variable "s3_arn" {
   type        = string
   description = "s3 buckets arn - bucket for storing static html contents"
 }
+
+variable "lambda_functions" {
+  type        = map(string)
+  description = "map of functions and the source code path that needs to be deployed"
+}

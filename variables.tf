@@ -18,3 +18,8 @@ variable "bucket_name" {
   type        = string
   description = "bucket name for storing static html contents"
 }
+
+variable "lambda_functions" {
+  type        = map(string)
+  description = "map of functions and the source code path that needs to be deployed"
+}
