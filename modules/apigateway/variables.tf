@@ -3,8 +3,3 @@ variable "prefix" {
   description = "prefix used for naming resources"
   default     = "iac-serverless-raj"
 }
-
-variable "register_user_function_arn" {
-  type        = string
-  description = "arn of register_user lambda function"
-}
