@@ -1,22 +1,22 @@
 openapi: "3.0.1"
 info:
   version: 0.0.1
-  description: My awesome API
+  description: User app to register and verify users
 paths:
-  /debug:
+  /register:
     get:
-      operationId: getDebug
+      operationId: registerUser
       responses:
         default:
-          description: "Default response for GET /debug"
+          description: "Registered user"
       x-amazon-apigateway-integration:
-        $ref: '#/components/x-amazon-apigateway-integrations/debug'
+        $ref: '#/components/x-amazon-apigateway-integrations/registerUser'
 
 components:
   x-amazon-apigateway-integrations:
-    debug:
+    registerUser:
       type: AWS_PROXY
       httpMethod: GET
-      uri: "${example_function_arn}"
+      uri: "${register_user_function_arn}"
       payloadFormatVersion: "2.0"
       connectionType: INTERNET
