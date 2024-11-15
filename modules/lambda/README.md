@@ -10,7 +10,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | = 5.72.1 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.72.1 |
 
 ## Modules
 
@@ -31,10 +31,13 @@
 |------|-------------|------|---------|:--------:|
 | <a name="input_bucket_name"></a> [bucket\_name](#input\_bucket\_name) | bucket name for storing static html contents | `string` | n/a | yes |
 | <a name="input_db_name"></a> [db\_name](#input\_db\_name) | Database name for storing users | `string` | n/a | yes |
+| <a name="input_lambda_functions"></a> [lambda\_functions](#input\_lambda\_functions) | map of functions and the source code path that needs to be deployed | `map(string)` | n/a | yes |
 | <a name="input_prefix"></a> [prefix](#input\_prefix) | prefix used for naming resources | `string` | `"iac-serverless-raj"` | no |
 | <a name="input_s3_arn"></a> [s3\_arn](#input\_s3\_arn) | s3 buckets arn - bucket for storing static html contents | `string` | n/a | yes |
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_register_user_function_arn"></a> [register\_user\_function\_arn](#output\_register\_user\_function\_arn) | arn of register\_user lambda function |
 <!-- END_TF_DOCS -->
