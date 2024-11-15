@@ -58,7 +58,7 @@ runs:
         terraform fmt --check --diff --recursive
 
     - name: Terraform lint
-      continue-on-error: true
+#      continue-on-error: true
       shell: bash
       run: |
         tflint --recursive
