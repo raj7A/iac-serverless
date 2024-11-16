@@ -7,3 +7,8 @@ output "s3_arn" {
   description = "arn of s3 store that contains static html contents"
   value       = module.s3.s3_arn
 }
+
+output "users_app_url" {
+  description = "url of the users app"
+  value       = module.api_gateway.users_app_url
+}
