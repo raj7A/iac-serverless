@@ -23,3 +23,8 @@ variable "lambda_functions" {
   type        = map(string)
   description = "map of functions and the source code path that needs to be deployed"
 }
+
+variable "api_execution_arn" {
+  type        = string
+  description = "arn of apigateway"
+}

@@ -92,6 +92,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
+| <a name="module_api_gateway"></a> [api\_gateway](#module\_api\_gateway) | ./modules/apigateway | n/a |
 | <a name="module_dynamodb_table"></a> [dynamodb\_table](#module\_dynamodb\_table) | ./modules/dynamodb | n/a |
 | <a name="module_lambda_function"></a> [lambda\_function](#module\_lambda\_function) | ./modules/lambda | n/a |
 | <a name="module_s3"></a> [s3](#module\_s3) | ./modules/s3 | n/a |
@@ -116,4 +117,5 @@ No resources.
 |------|-------------|
 | <a name="output_database_arn"></a> [database\_arn](#output\_database\_arn) | arn of dynamodb used for storing users |
 | <a name="output_s3_arn"></a> [s3\_arn](#output\_s3\_arn) | arn of s3 store that contains static html contents |
+| <a name="output_users_app_url"></a> [users\_app\_url](#output\_users\_app\_url) | url of the users app |
 <!-- END_TF_DOCS -->

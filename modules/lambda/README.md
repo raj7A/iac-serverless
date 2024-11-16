@@ -29,6 +29,7 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_api_execution_arn"></a> [api\_execution\_arn](#input\_api\_execution\_arn) | arn of apigateway | `string` | n/a | yes |
 | <a name="input_bucket_name"></a> [bucket\_name](#input\_bucket\_name) | bucket name for storing static html contents | `string` | n/a | yes |
 | <a name="input_db_name"></a> [db\_name](#input\_db\_name) | Database name for storing users | `string` | n/a | yes |
 | <a name="input_lambda_functions"></a> [lambda\_functions](#input\_lambda\_functions) | map of functions and the source code path that needs to be deployed | `map(string)` | n/a | yes |

@@ -8,12 +8,20 @@ module "lambda_function" {
   handler       = format("%s.lambda_handler", each.key)
   runtime       = "python3.12"
   source_path   = each.value
+  publish       = true
 
   timeout = "60"
 
   environment_variables = {
     "DB_TABLE_NAME" = var.db_name
     "WEBSITE_S3"    = var.bucket_name
+  }
+
+  allowed_triggers = {
+    AllowExecutionFromAPIGateway = {
+      service    = "apigateway"
+      source_arn = "${var.api_execution_arn}/*/*"
+    }
   }
 
   create_role              = true
