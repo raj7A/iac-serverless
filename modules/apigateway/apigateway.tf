@@ -6,6 +6,7 @@ module "apigateway-v2" {
 
   body = templatefile("templates/users_app_contract.yaml", {
     register_user_function_arn = var.register_user_function_arn
+    verify_user_function_arn   = var.verify_user_function_arn
   })
 
   # Disable creation of the domain name and API mapping

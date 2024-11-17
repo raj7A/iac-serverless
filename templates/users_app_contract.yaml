@@ -11,6 +11,14 @@ paths:
           description: "Default response for POST /register"
       x-amazon-apigateway-integration:
         $ref: '#/components/x-amazon-apigateway-integrations/registerUser'
+  /:
+    post:
+      operationId: verifyUser
+      responses:
+        default:
+          description: "Default response for POST /"
+      x-amazon-apigateway-integration:
+        $ref: '#/components/x-amazon-apigateway-integrations/verifyUser'
 
 components:
   x-amazon-apigateway-integrations:
@@ -18,4 +26,9 @@ components:
       type: AWS_PROXY
       httpMethod: POST
       uri: "${register_user_function_arn}"
+      payloadFormatVersion: "2.0"
+    verifyUser:
+      type: AWS_PROXY
+      httpMethod: POST
+      uri: "${verify_user_function_arn}"
       payloadFormatVersion: "2.0"
