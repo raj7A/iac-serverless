@@ -15,3 +15,9 @@ variable "repo_name" {
   description = "iac repository name"
   default     = "raj7A/iac-serverless"
 }
+
+variable "bucket_name" {
+  type        = string
+  description = "bucket name for storing static contents"
+  default     = "user-details-static-contents"
+}

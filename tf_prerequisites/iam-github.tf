@@ -61,8 +61,8 @@ resource "aws_iam_role_policy" "extra_permissions" {
         "Resource" : [
           "arn:aws:s3:::${var.prefix}-tfstate",
           "arn:aws:s3:::${var.prefix}-tfstate/*",
-          "arn:aws:s3:::user-details-static-contents",
-          "arn:aws:s3:::user-details-static-contents/*"
+          "arn:aws:s3:::${var.bucket_name}",
+          "arn:aws:s3:::${var.bucket_name}/*"
         ]
       },
       {
@@ -85,6 +85,13 @@ resource "aws_iam_role_policy" "extra_permissions" {
           "logs:*",
         ],
         "Resource" : "*"
+      },
+      {
+        "Effect" : "Allow",
+        "Action" : [
+          "apigateway:*",
+        ],
+        "Resource" : format("arn:aws:apigateway:%s::/*", data.aws_region.current.id)
       }
     ]
   })
