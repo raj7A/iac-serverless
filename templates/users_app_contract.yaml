@@ -6,19 +6,9 @@ paths:
   /register:
     post:
       operationId: registerUser
-      requestBody:
-        description: register user
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UserRequest'
       responses:
-        '200':
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UserResponse'
+        default:
+          description: "Default response for POST /register"
       x-amazon-apigateway-integration:
         $ref: '#/components/x-amazon-apigateway-integrations/registerUser'
 
@@ -29,16 +19,3 @@ components:
       httpMethod: POST
       uri: "${register_user_function_arn}"
       payloadFormatVersion: "2.0"
-      connectionType: INTERNET
-  schemas:
-    UserRequest:
-      type: object
-      properties:
-        rawQueryString:
-          type: string
-
-    UserResponse:
-      type: object
-      properties:
-        message:
-          type: string
