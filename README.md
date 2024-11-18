@@ -2,7 +2,7 @@
     
 ## _Overview_
 
-    Infra as Code to spin up resources on aws to run the serverless user-application, that allows users to register and verify the user
+    Infra as Code to spin up resources on aws to run the serverless user-application, that allows to register and verify the user
 
 ## _Architecture_
 
@@ -63,7 +63,22 @@
    tfsec .
    ```
 
-## FinOps
+## _How to Test_ :
+### Curl :
+```shell
+curl -X POST '{users_app_url_from_terraform_output}/register?UserId=Raj7'
+curl -X POST '{users_app_url_from_terraform_output}/?UserId=Raj7' > verified_user.html
+```
+### Output :
+
+**_Register user ->_**
+
+![](/images/register_user_output.png)
+
+**_Verify user ->_**
+
+![](/images/verify_user_output.png)
+## _FinOps_
 
 Refer the [detailed cost estimates](finOps/iac-serverless-raj_estimate.json) file for detailed rough cost estimates generated via [Cost calculator](https://calculator.aws/#/)
  ``` json
