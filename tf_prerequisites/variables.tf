@@ -25,5 +25,5 @@ variable "repo_name" {
 variable "bucket_name" {
   type        = string
   description = "bucket name for storing static contents"
-  default     = "user-details-static-contents"
+  default     = "iac-serverless-raj-user-details-static-contents"
 }
