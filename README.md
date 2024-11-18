@@ -50,8 +50,8 @@
    ```shell
    terraform init
    terraform validate
-   terraform plan --var-file=dev.tfvars
-#   terraform apply --var-file=dev.tfvars
+   terraform plan --var-file=environments/dev.tfvars
+#   terraform apply --var-file=environments/dev.tfvars
 #   terraform output
 #   terraform destroy
    ```
@@ -122,6 +122,7 @@ No resources.
 |------|-------------|------|---------|:--------:|
 | <a name="input_bucket_name"></a> [bucket\_name](#input\_bucket\_name) | bucket name for storing static html contents | `string` | n/a | yes |
 | <a name="input_db_name"></a> [db\_name](#input\_db\_name) | Database name for storing users | `string` | n/a | yes |
+| <a name="input_environment"></a> [environment](#input\_environment) | environment to deploy the resources | `string` | n/a | yes |
 | <a name="input_lambda_functions"></a> [lambda\_functions](#input\_lambda\_functions) | map of functions and the source code path that needs to be deployed | `map(string)` | n/a | yes |
 | <a name="input_prefix"></a> [prefix](#input\_prefix) | prefix used for naming resources | `string` | `"iac-serverless-raj"` | no |
 | <a name="input_region"></a> [region](#input\_region) | region for creating all resources | `string` | n/a | yes |

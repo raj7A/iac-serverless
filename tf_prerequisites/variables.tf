@@ -10,6 +10,12 @@ variable "region" {
   default     = "ap-southeast-2"
 }
 
+variable "environment" {
+  type        = string
+  description = "environment to deploy the resources"
+  default     = "Dev"
+}
+
 variable "repo_name" {
   type        = string
   description = "iac repository name"

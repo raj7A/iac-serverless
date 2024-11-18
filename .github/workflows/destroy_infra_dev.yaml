@@ -27,8 +27,8 @@ jobs:
 
       - name: Terraform destroy plan
         run: |
-          terraform plan -destroy -var-file="dev.tfvars"
+          terraform plan -destroy --var-file=environments/dev.tfvars"
 
       - name: Terraform destroy
         run: |
-          terraform destroy --auto-approve -var-file="dev.tfvars"
+          terraform destroy --auto-approve --var-file=environments/dev.tfvars"

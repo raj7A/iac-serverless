@@ -1,6 +1,6 @@
-prefix = "iac-serverless-raj"
-region = "ap-southeast-2"
-
+prefix      = "iac-serverless-raj"
+region      = "ap-southeast-2"
+environment = "Dev"
 db_name     = "user_details"
 bucket_name = "user-details-static-contents"
 

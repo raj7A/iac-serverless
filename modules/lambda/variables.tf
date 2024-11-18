@@ -9,6 +9,11 @@ variable "bucket_name" {
   description = "bucket name for storing static html contents"
 }
 
+variable "environment" {
+  type        = string
+  description = "environment to deploy the resources"
+}
+
 variable "db_name" {
   type        = string
   description = "Database name for storing users"

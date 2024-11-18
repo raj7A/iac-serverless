@@ -14,7 +14,7 @@ provider "aws" {
     tags = {
       ManagedBy     = "Terraform"
       Project       = var.prefix
-      Environment   = "Dev"
+      Environment   = var.environment
       TechOwner     = "user_team@mycompany.com"
       BusinessOwner = "user_business_team@mycompany.com"
     }

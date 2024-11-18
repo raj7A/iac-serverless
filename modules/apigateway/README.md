@@ -24,6 +24,7 @@ No resources.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_environment"></a> [environment](#input\_environment) | environment to deploy the resources | `string` | n/a | yes |
 | <a name="input_prefix"></a> [prefix](#input\_prefix) | prefix used for naming resources | `string` | `"iac-serverless-raj"` | no |
 | <a name="input_register_user_function_arn"></a> [register\_user\_function\_arn](#input\_register\_user\_function\_arn) | arn of register\_user lambda function | `string` | n/a | yes |
 | <a name="input_verify_user_function_arn"></a> [verify\_user\_function\_arn](#input\_verify\_user\_function\_arn) | arn of verify\_user lambda function | `string` | n/a | yes |

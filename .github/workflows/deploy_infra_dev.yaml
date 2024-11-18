@@ -28,10 +28,10 @@ jobs:
           AWS_REGION       : ${{ env.AWS_REGION }}
           IAM_ROLE         : ${{ env.IAM_ROLE }}
 
-      - name: Terraform create plan
+      - name: Terraform apply plan
         run: |
-          terraform plan -var-file="dev.tfvars"
+          terraform plan --var-file=environments/dev.tfvars"
 
-      - name: Terraform create
+      - name: Terraform apply
         run: |
-          terraform apply --auto-approve -var-file="dev.tfvars"
+          terraform apply --auto-approve --var-file=environments/dev.tfvars"
