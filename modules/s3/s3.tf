@@ -17,7 +17,7 @@ module "s3_bucket" {
   }
 
   tags = {
-    Name = format("%s-%s", var.prefix, var.bucket_name)
+    Name = var.bucket_name
   }
 
 }

@@ -12,4 +12,7 @@ module "dynamodb_table" {
       type = "S"
     }
   ]
+  tags = {
+    name = var.db_name
+  }
 }

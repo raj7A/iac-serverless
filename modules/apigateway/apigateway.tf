@@ -1,10 +1,10 @@
 module "apigateway-v2" {
   source      = "terraform-aws-modules/apigateway-v2/aws"
   version     = "5.2.0"
-  name        = format("%s_user_app", var.prefix)
+  name        = format("%s-user-app", var.prefix)
   description = "User application HTTP api gateway"
 
-  body = templatefile("templates/users_app_contract.yaml", {
+  body = templatefile("templates/user_app_contract.yaml", {
     register_user_function_arn = var.register_user_function_arn
     verify_user_function_arn   = var.verify_user_function_arn
   })
@@ -47,6 +47,6 @@ module "apigateway-v2" {
   }
 
   tags = {
-    Name = format("%s-user_apps_gateway", var.prefix)
+    Name = format("%s-user-app-gateway", var.prefix)
   }
 }

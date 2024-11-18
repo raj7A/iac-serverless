@@ -3,7 +3,7 @@ module "lambda_function" {
   source   = "terraform-aws-modules/lambda/aws"
 
   version       = "7.14.0"
-  function_name = format("%s_%s", var.prefix, each.key)
+  function_name = format("%s-%s", var.prefix, each.key)
   description   = format("%s lambda function", each.key)
   handler       = format("%s.lambda_handler", each.key)
   runtime       = "python3.12"

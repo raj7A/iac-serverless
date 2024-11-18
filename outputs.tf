@@ -8,7 +8,7 @@ output "s3_arn" {
   value       = module.s3.s3_arn
 }
 
-output "users_app_url" {
-  description = "url of the users app"
-  value       = module.api_gateway.users_app_url
+output "user_app_url" {
+  description = "url of the user app"
+  value       = module.api_gateway.user_app_url
 }

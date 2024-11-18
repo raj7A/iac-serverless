@@ -34,5 +34,5 @@ No resources.
 | Name | Description |
 |------|-------------|
 | <a name="output_api_execution_arn"></a> [api\_execution\_arn](#output\_api\_execution\_arn) | arn of api executor |
-| <a name="output_users_app_url"></a> [users\_app\_url](#output\_users\_app\_url) | url of the users app |
+| <a name="output_user_app_url"></a> [user\_app\_url](#output\_user\_app\_url) | url of the user app |
 <!-- END_TF_DOCS -->

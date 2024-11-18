@@ -41,6 +41,6 @@
 
 | Name | Description |
 |------|-------------|
-| <a name="output_register_user_function_arn"></a> [register\_user\_function\_arn](#output\_register\_user\_function\_arn) | arn of register\_user lambda function |
-| <a name="output_verify_user_function_arn"></a> [verify\_user\_function\_arn](#output\_verify\_user\_function\_arn) | arn of verify\_user lambda function |
+| <a name="output_register_user_function_arn"></a> [register\_user\_function\_arn](#output\_register\_user\_function\_arn) | arn of register user lambda function |
+| <a name="output_verify_user_function_arn"></a> [verify\_user\_function\_arn](#output\_verify\_user\_function\_arn) | arn of verify user lambda function |
 <!-- END_TF_DOCS -->

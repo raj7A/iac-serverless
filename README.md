@@ -65,9 +65,13 @@
 
 ## _How to Test_ :
 ### Curl :
+**_Register user ->_**
 ```shell
-curl -X POST '{users_app_url_from_terraform_output}/register?UserId=Raj7'
-curl -X POST '{users_app_url_from_terraform_output}/?UserId=Raj7' > verified_user.html
+curl -X POST '{user_app_url_from_terraform_output}/register?UserId=Raj7'
+```
+**_Verify user ->_**
+```shell
+curl -X POST '{user_app_url_from_terraform_output}/?UserId=Raj7' > verified_user.html
 ```
 ### Output :
 
@@ -133,5 +137,5 @@ No resources.
 |------|-------------|
 | <a name="output_database_arn"></a> [database\_arn](#output\_database\_arn) | arn of dynamodb used for storing users |
 | <a name="output_s3_arn"></a> [s3\_arn](#output\_s3\_arn) | arn of s3 store that contains static html contents |
-| <a name="output_users_app_url"></a> [users\_app\_url](#output\_users\_app\_url) | url of the users app |
+| <a name="output_user_app_url"></a> [user\_app\_url](#output\_user\_app\_url) | url of the user app |
 <!-- END_TF_DOCS -->

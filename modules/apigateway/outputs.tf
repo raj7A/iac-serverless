@@ -1,5 +1,5 @@
-output "users_app_url" {
-  description = "url of the users app"
+output "user_app_url" {
+  description = "url of the user app"
   value       = module.apigateway-v2.stage_invoke_url
 }
 
