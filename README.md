@@ -67,10 +67,10 @@
 
 Refer the [detailed cost estimates](finOps/iac-serverless-raj_estimate.json) file for detailed rough cost estimates generated via [Cost calculator](https://calculator.aws/#/)
  ``` json
-	"Total Cost": {
-		"monthly": "20.00",
+		"Total Cost": {
+		"monthly": "21.29",
 		"upfront": "0.00",
-		"12 months": "240.00"
+		"12 months": "255.48"
 	}
   ``` 
 

@@ -1,16 +1,16 @@
 {
 	"Name": "iac-serverless-raj_estimate",
 	"Total Cost": {
-		"monthly": "20.00",
+		"monthly": "21.29",
 		"upfront": "0.00",
-		"12 months": "240.00"
+		"12 months": "255.48"
 	},
 	"Metadata": {
 		"Currency": "USD",
 		"Locale": "en_US",
-		"Created On": "11/11/2024",
+		"Created On": "18/11/2024",
 		"Legal Disclaimer": "AWS Pricing Calculator provides only an estimate of your AWS fees and doesn't include any taxes that might apply. Your actual fees depend on a variety of factors, including your actual usage of AWS services.",
-		"Share Url": "https://calculator.aws/#/estimate?id=615e8c6ac816e1d0bcce1b6763a77c9f4d3149bf"
+		"Share Url": "https://calculator.aws/#/estimate?id=4058428afedc31409a160e531238addfcccbd3f2"
 	},
 	"Groups": {
 		"Services": [
@@ -56,7 +56,10 @@
 					"upfront": "0.00",
 					"12 months": "0.00"
 				},
-				"Properties": {}
+				"Properties": {
+					"DT Inbound: Not selected": "0 TB per month",
+					"DT Outbound: Not selected": "0 TB per month"
+				}
 			},
 			{
 				"Service Name": "DynamoDB provisioned capacity",
@@ -123,6 +126,26 @@
 					"Architecture": "x86",
 					"Number of requests": "1 per second",
 					"Amount of ephemeral storage allocated": "512 MB"
+				}
+			},
+			{
+				"Service Name": "Amazon API Gateway",
+				"Description": "User application HTTP api gateway",
+				"Region": "Asia Pacific (Sydney)",
+				"Status": "",
+				"Service Cost": {
+					"monthly": "1.29",
+					"upfront": "0.00",
+					"12 months": "15.48"
+				},
+				"Properties": {
+					"HTTP API requests units": "thousands",
+					"Average size of each request": "34 KB",
+					"REST API request units": "millions",
+					"Cache memory size (GB)": "None",
+					"WebSocket message units": "thousands",
+					"Average message size": "32 KB",
+					"Requests": "1000 per month"
 				}
 			}
 		]
