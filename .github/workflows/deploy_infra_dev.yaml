@@ -30,8 +30,8 @@ jobs:
 
       - name: Terraform apply plan
         run: |
-          terraform plan --var-file=environments/dev.tfvars"
+          terraform plan --var-file=environments/dev.tfvars
 
       - name: Terraform apply
         run: |
-          terraform apply --auto-approve --var-file=environments/dev.tfvars"
+          terraform apply --auto-approve --var-file=environments/dev.tfvars
